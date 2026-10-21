@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from zipfile import ZipFile
 
 from salary_predictor.source_inventory import verify_raw_files
 from salary_predictor.source_registry import load_source_register, validate_source_register
@@ -86,3 +87,25 @@ def test_real_manifest_and_registry_agree_without_loading_raw_data() -> None:
     assert psa["local_path"] in files
     assert esco["local_path"] == "data/raw/esco"
     assert all(not source["enabled_for_import"] for source in register["sources"])
+
+
+
+def test_local_xlsx_structure_and_checksum(tmp_path: Path) -> None:
+    manifest = make_manifest(tmp_path)
+    path = tmp_path / "data" / "raw" / "psoc" / "example.xlsx"
+    path.parent.mkdir(parents=True)
+    with ZipFile(path, "w") as file:
+        file.writestr("[Content_Types].xml", "<Types/>")
+        file.writestr("xl/workbook.xml", "<workbook/>")
+        file.writestr("xl/worksheets/sheet1.xml", "<worksheet/>")
+    manifest["files"].append({
+        "path": "data/raw/psoc/example.xlsx",
+        "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "bytes": path.stat().st_size,
+    })
+    assert verify_raw_files(tmp_path, manifest) == []
+
+    path.write_bytes(b"not a workbook")
+    errors = verify_raw_files(tmp_path, manifest)
+    assert any("Checksum changed" in e for e in errors)
+    assert any("Cannot read XLSX" in e for e in errors)

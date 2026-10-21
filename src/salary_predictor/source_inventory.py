@@ -6,6 +6,7 @@ import hashlib
 import json
 import sys
 from pathlib import Path
+from zipfile import BadZipFile, ZipFile
 
 
 def verify_raw_files(root: Path, manifest: dict) -> list[str]:
@@ -57,6 +58,18 @@ def verify_raw_files(root: Path, manifest: dict) -> list[str]:
                     errors.append(f"Column count changed: {relative_path}")
             except (UnicodeError, csv.Error, StopIteration, OverflowError) as exc:
                 errors.append(f"Cannot read CSV {relative_path}: {type(exc).__name__}")
+        elif path.suffix.lower() == ".xlsx":
+            try:
+                with ZipFile(path) as workbook:
+                    files = set(workbook.namelist())
+                    if not (
+                        "[Content_Types].xml" in files
+                        and "xl/workbook.xml" in files
+                        and any(name.startswith("xl/worksheets/sheet") for name in files)
+                    ):
+                        errors.append(f"Invalid workbook: {relative_path}")
+            except BadZipFile:
+                errors.append(f"Cannot read XLSX: {relative_path}")
         elif path.suffix.lower() == ".pdf":
             with path.open("rb") as file:
                 if not file.read(5).startswith(b"%PDF-"):

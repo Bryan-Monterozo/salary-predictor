@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "source": "project-curated UX labels, NOT formal PSCED equivalence",
+  "version": "education-aliases-1",
+  "levels": [
+    {
+      "id": "none",
+      "label": "No formal schooling",
+      "aliases": [
+        "no formal education",
+        "none"
+      ]
+    },
+    {
+      "id": "primary",
+      "label": "Primary education",
+      "aliases": [
+        "elementary graduate",
+        "primary school"
+      ]
+    },
+    {
+      "id": "secondary",
+      "label": "Secondary education",
+      "aliases": [
+        "high school graduate",
+        "senior high school",
+        "shs",
+        "secondary school"
+      ]
+    },
+    {
+      "id": "vocational",
+      "label": "Vocational education",
+      "aliases": [
+        "technical vocational graduate",
+        "vocational graduate",
+        "tech-voc graduate"
+      ]
+    },
+    {
+      "id": "associate",
+      "label": "Associate degree",
+      "aliases": [
+        "associate degree",
+        "associate graduate",
+        "college"
+      ]
+    },
+    {
+      "id": "bachelor",
+      "label": "Bachelor's degree",
+      "aliases": [
+        "bachelors degree",
+        "bachelor degree",
+        "college graduate",
+        "college"
+      ]
+    },
+    {
+      "id": "master",
+      "label": "Master's degree",
+      "aliases": [
+        "masters degree",
+        "master degree"
+      ]
+    },
+    {
+      "id": "doctorate",
+      "label": "Doctorate",
+      "aliases": [
+        "phd",
+        "doctoral degree",
+        "doctor of philosophy"
+      ]
+    }
+  ]
+}

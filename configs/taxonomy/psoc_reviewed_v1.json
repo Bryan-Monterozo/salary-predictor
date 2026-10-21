@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "source": "Philippine Statistics Authority",
+  "source_url": "https://psa.gov.ph/classification/psoc/minor/251",
+  "version": "2012 PSOC; partial verified unit-groups only",
+  "scope": "partial_verified_sample_not_complete_psoc",
+  "codes": [
+    {
+      "code": "2511",
+      "label": "Systems Analysts",
+      "aliases": [
+        "systems analyst",
+        "business analyst (it)"
+      ],
+      "parent_code": "251",
+      "level": "unit_group"
+    },
+    {
+      "code": "2512",
+      "label": "Software Developers",
+      "aliases": [
+        "software developer",
+        "software engineer",
+        "software architect"
+      ],
+      "parent_code": "251",
+      "level": "unit_group"
+    },
+    {
+      "code": "2513",
+      "label": "Web and Multimedia Developers",
+      "aliases": [
+        "web developer",
+        "website developer"
+      ],
+      "parent_code": "251",
+      "level": "unit_group"
+    },
+    {
+      "code": "2514",
+      "label": "Applications Programmers",
+      "aliases": [
+        "applications programmer",
+        "application programmer"
+      ],
+      "parent_code": "251",
+      "level": "unit_group"
+    },
+    {
+      "code": "2519",
+      "label": "Software and Applications Developers and Analysts Not Elsewhere Classified",
+      "aliases": [
+        "software tester",
+        "systems tester"
+      ],
+      "parent_code": "251",
+      "level": "unit_group"
+    }
+  ]
+}

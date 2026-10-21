@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "source_esco_file": "data/raw/esco/occupations_en.csv",
+  "source_esco_sha256": "8034348d84b6d1dd24a5bcf9609186ecbba0a85457ee2eacd65bddec33a51b4a",
+  "psoc_source": "https://psa.gov.ph/classification/psoc/minor/251",
+  "esco_source": "https://esco.ec.europa.eu/en/use-esco/download",
+  "reviewed_on": "2026-10-21",
+  "source_version": "ESCO export unconfirmed; PSOC browsed 2012 unit entries",
+  "approval_policy": "reviewed_mapping_is_suggestion_only; user must confirm selection",
+  "mappings": [
+    {
+      "esco_uri": "http://data.europa.eu/esco/occupation/f2b15a0e-e65a-438a-affb-29b9d50b77d1",
+      "esco_label": "software developer",
+      "psoc_code": "2512",
+      "psoc_label": "Software Developers",
+      "relationship": "narrower_role_to_psoc_unit_group",
+      "confidence": 0.95,
+      "evidence": [
+        "official_psoc_unit_2512_examples",
+        "esco_uri_and_isco2512"
+      ],
+      "review_status": "source_reviewed",
+      "auto_assign": false
+    },
+    {
+      "esco_uri": "http://data.europa.eu/esco/occupation/c40a2919-48a9-40ea-b506-1f34f693496d",
+      "esco_label": "web developer",
+      "psoc_code": "2513",
+      "psoc_label": "Web and Multimedia Developers",
+      "relationship": "narrower_role_to_psoc_unit_group",
+      "confidence": 0.95,
+      "evidence": [
+        "official_psoc_unit_2513_examples",
+        "esco_uri_and_isco2513"
+      ],
+      "review_status": "source_reviewed",
+      "auto_assign": false
+    }
+  ]
+}

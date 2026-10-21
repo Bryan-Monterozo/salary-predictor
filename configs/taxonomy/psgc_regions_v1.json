@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "source": "Philippine Statistics Authority",
+  "source_url": "https://psa.gov.ph/classification/psgc/regions",
+  "snapshot": "2025-07-31",
+  "checked_latest_publication": "2026-09-30",
+  "code_system": "PSGC 10-digit region codes",
+  "scope": "regions_only; cities/provinces/barangays not included",
+  "license": "PSA site CC BY 4.0 unless otherwise stated",
+  "regions": [
+    {
+      "code": "1300000000",
+      "label": "National Capital Region (NCR)",
+      "aliases": [
+        "ncr",
+        "metro manila",
+        "national capital region",
+        "manila metropolitan area"
+      ]
+    },
+    {
+      "code": "1400000000",
+      "label": "Cordillera Administrative Region (CAR)",
+      "aliases": [
+        "car",
+        "cordillera",
+        "cordillera administrative region"
+      ]
+    },
+    {
+      "code": "0100000000",
+      "label": "Region I (Ilocos Region)",
+      "aliases": [
+        "region i",
+        "region 1",
+        "ilocos region"
+      ]
+    },
+    {
+      "code": "0200000000",
+      "label": "Region II (Cagayan Valley)",
+      "aliases": [
+        "region ii",
+        "region 2",
+        "cagayan valley"
+      ]
+    },
+    {
+      "code": "0300000000",
+      "label": "Region III (Central Luzon)",
+      "aliases": [
+        "region iii",
+        "region 3",
+        "central luzon"
+      ]
+    },
+    {
+      "code": "0400000000",
+      "label": "Region IV-A (CALABARZON)",
+      "aliases": [
+        "region iv-a",
+        "region 4a",
+        "calabarzon"
+      ]
+    },
+    {
+      "code": "1700000000",
+      "label": "MIMAROPA Region",
+      "aliases": [
+        "mimaropa",
+        "region iv-b",
+        "region 4b"
+      ]
+    },
+    {
+      "code": "0500000000",
+      "label": "Region V (Bicol Region)",
+      "aliases": [
+        "region v",
+        "region 5",
+        "bicol",
+        "bicol region"
+      ]
+    },
+    {
+      "code": "0600000000",
+      "label": "Region VI (Western Visayas)",
+      "aliases": [
+        "region vi",
+        "region 6",
+        "western visayas"
+      ]
+    },
+    {
+      "code": "1800000000",
+      "label": "Negros Island Region (NIR)",
+      "aliases": [
+        "nir",
+        "negros island region"
+      ]
+    },
+    {
+      "code": "0700000000",
+      "label": "Region VII (Central Visayas)",
+      "aliases": [
+        "region vii",
+        "region 7",
+        "central visayas"
+      ]
+    },
+    {
+      "code": "0800000000",
+      "label": "Region VIII (Eastern Visayas)",
+      "aliases": [
+        "region viii",
+        "region 8",
+        "eastern visayas"
+      ]
+    },
+    {
+      "code": "0900000000",
+      "label": "Region IX (Zamboanga Peninsula)",
+      "aliases": [
+        "region ix",
+        "region 9",
+        "zamboanga peninsula"
+      ]
+    },
+    {
+      "code": "1000000000",
+      "label": "Region X (Northern Mindanao)",
+      "aliases": [
+        "region x",
+        "region 10",
+        "northern mindanao"
+      ]
+    },
+    {
+      "code": "1100000000",
+      "label": "Region XI (Davao Region)",
+      "aliases": [
+        "region xi",
+        "region 11",
+        "davao region"
+      ]
+    },
+    {
+      "code": "1200000000",
+      "label": "Region XII (SOCCSKSARGEN)",
+      "aliases": [
+        "region xii",
+        "region 12",
+        "soccsksargen"
+      ]
+    },
+    {
+      "code": "1600000000",
+      "label": "Region XIII (Caraga)",
+      "aliases": [
+        "region xiii",
+        "region 13",
+        "caraga"
+      ]
+    },
+    {
+      "code": "1900000000",
+      "label": "Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)",
+      "aliases": [
+        "barmm",
+        "bangsamoro",
+        "bangsamoro autonomous region in muslim mindanao"
+      ]
+    }
+  ]
+}

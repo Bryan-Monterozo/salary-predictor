@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "observed_on": "2026-10-20",
-  "source_note": "Local files verified to match files reviewed in the conversation. This manifest is not a license approval or released dataset.",
+  "observed_on": "2026-10-21",
+  "source_note": "20 original source files were previously verified against uploads. 2022-psoc.xlsx is newly user-provided, locally inspected; exact official distribution/version is unconfirmed. Not a license approval.",
   "esco_export_version": "unconfirmed",
   "files": [
     {
@@ -123,6 +123,14 @@
       "sha256": "402460087ee94f2e2ca6fb107fae64cb18afdc9a6917fa6dd4956f79d27633ed",
       "bytes": 713867,
       "source_reviewed_pages": 58
+    },
+    {
+      "path": "data/raw/psoc/2022-psoc.xlsx",
+      "sha256": "666e276e061efcf6939a4839420ddb0a9a30d3786ab41c5892a81a915858941c",
+      "bytes": 922113,
+      "source_note": "User-supplied PSOC workbook; 10 Group sheets; 466 unit codes. Original official download/version is not independently verified.",
+      "workbook_sheets": 10,
+      "unit_groups": 466
     }
   ]
 }

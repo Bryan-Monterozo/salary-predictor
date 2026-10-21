@@ -82,37 +82,48 @@
     },
     {
       "id": "psa_psoc_2022_update",
-      "name": "2022 updates to 2012 Philippine Standard Occupational Classification",
+      "name": "User-supplied 2022 PSOC workbook — 10 major groups, 466 unit codes",
       "owner": "Philippine Statistics Authority",
       "source_url": "https://psa.gov.ph/classification/psoc",
       "rights_url": "https://psa.gov.ph/terms-of-use",
       "rights_status": "verified_cc_by_public_material",
-      "access_status": "official_website_not_local",
+      "access_status": "local_verified_read_only",
       "dataset_role": "taxonomy",
-      "format": "reference_web_or_file_to_verify",
+      "format": "xlsx",
       "reference_date": "2022",
       "retrieved_date": "2026-10-20",
       "refresh_frequency": "check_official_revisions",
-      "population": "PH occupation classification, not an employee salary dataset",
-      "observation_unit": "Occupation code and hierarchy entry",
+      "population": "Occupation groups and classification descriptions, not a wage dataset",
+      "observation_unit": "PSOC hierarchy entries: 10 major, 43 sub-major, 130 minor, 466 unit groups",
       "target_definition": null,
       "currency": null,
       "wage_period": null,
       "available_features": [
-        "psoc_code",
+        "psoc_group_code",
         "occupation_title",
-        "hierarchy"
+        "major_group",
+        "sub_major_group",
+        "minor_group",
+        "unit_group",
+        "1992_psoc_relation",
+        "2008_isco_relation"
       ],
       "unsupported_features": [
-        "salary",
-        "skills_effect",
-        "years_experience"
+        "individual_salary",
+        "occupation_salary",
+        "experience",
+        "skill_wage_effect",
+        "official_file_origin_verified"
       ],
       "approved_use": [
         "taxonomy_with_attribution"
       ],
       "public_benchmark_eligible": false,
-      "enabled_for_import": false
+      "enabled_for_import": false,
+      "local_path": "data/raw/psoc/2022-psoc.xlsx",
+      "file_manifest": "configs/local_raw_file_manifest.json",
+      "sha256": "666e276e061efcf6939a4839420ddb0a9a30d3786ab41c5892a81a915858941c",
+      "provenance_status": "user_supplied; source contents inspected and sha256 pinned; official download URL and exact revision not independently verified; workbook metadata modified 2025-03-04"
     },
     {
       "id": "esco_english_bundle",
