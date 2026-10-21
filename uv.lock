@@ -704,6 +704,9 @@ dev = [
     { name = "pytest" },
     { name = "ruff" },
 ]
+ingest = [
+    { name = "pypdf" },
+]
 train = [
     { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "numpy", version = "2.5.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
@@ -721,13 +724,14 @@ requires-dist = [
     { name = "flask", marker = "extra == 'web'", specifier = ">=3.1,<4" },
     { name = "numpy", marker = "extra == 'train'", specifier = ">=2.0,<3" },
     { name = "pandas", marker = "extra == 'train'", specifier = ">=2.2,<3" },
+    { name = "pypdf", marker = "extra == 'ingest'", specifier = ">=5,<7" },
     { name = "pypdf", marker = "extra == 'web'", specifier = ">=5,<7" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8,<10" },
     { name = "python-docx", marker = "extra == 'web'", specifier = ">=1.2,<2" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.13,<1" },
     { name = "scikit-learn", marker = "extra == 'train'", specifier = ">=1.6,<2" },
 ]
-provides-extras = ["web", "train", "dev"]
+provides-extras = ["ingest", "web", "train", "dev"]
 
 [[package]]
 name = "scikit-learn"

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "read_only_feasibility_not_training_approval",
+  "reviewed_on": "2026-10-21",
+  "raw_file_manifest": "configs/local_raw_file_manifest.json",
+  "sources": [
+    {
+      "source_id": "world_bank_step_ph_2015",
+      "cohort": "individual_reported_labor_earnings_historical",
+      "catalog": "https://microdata.worldbank.org/catalog/3182",
+      "survey_reference": "PHL_2015_STEP-HH_v01_M",
+      "local_path": "data/raw/step/step_ph_weights_merged_public.csv",
+      "questionnaire": "data/raw/step/2.0_step_eec_questionnaire_withoutvar_en_20150817.pdf",
+      "checksum": "f181d1d32bc48efd5f671acb94c66d2f34e0ebcabcad65ea5a7b05e88abe6fbe",
+      "encoding": "cp1252",
+      "observation_unit": "survey_respondent",
+      "observed_earnings_variable": "earnings_h",
+      "observed_earnings_period": "hourly",
+      "occupation_variable": "occupation",
+      "occupation_code_system": "ISCO_1_digit_major_group",
+      "personal_sample_weight": "w3_finspwt",
+      "replicate_weight_prefix": "sp_rpl",
+      "permission_status": "public_use_with_conditions_model_training_deployment_not_confirmed",
+      "approved_for_import": false,
+      "approved_for_training": false,
+      "monthly_php_conversion": "blocked",
+      "data_quality_report": "data/audit/step_jobicy_feasibility-<fingerprint>.json"
+    },
+    {
+      "source_id": "jobicy_public_remote_jobs",
+      "cohort": "advertised_remote_salary",
+      "documentation": "https://jobicy.com/jobs-rss-feed",
+      "api_url": "https://jobicy.com/api/v2/remote-jobs?count=200",
+      "rss_url": "https://jobicy.com/jobs/feed?geo=philippines",
+      "raw_directory": "data/raw/jobicy",
+      "archive_policy": "save_every_successful_API_JSON_response_byte_for_byte_with_SHA256_and_retrieval_metadata_before_parsing; also archive_RSS_XML",
+      "observed_salary_fields": [
+        "salaryMin",
+        "salaryMax",
+        "salaryCurrency",
+        "salaryPeriod"
+      ],
+      "other_fields": [
+        "jobDescription",
+        "jobLevel",
+        "jobGeo",
+        "pubDate",
+        "jobTitle"
+      ],
+      "geography": "ALL eligible remote job listings: omit geo filter; retain original jobGeo",
+      "api_response_window": "last_7_days",
+      "permission_status": "public_job_app_display_fair_use_allowed_retain_attribution; long_term_archiving_and_ML_model_training_requires_separate_review",
+      "approved_for_import": false,
+      "approved_for_training": false,
+      "auto_fx_conversion": false,
+      "latest_unfiltered_traversal": "2026-10-21: five pages, 989 unique IDs, 513 valid disclosed salaries; exhausted 7-day source; 5k shortfall 4011",
+      "accumulation": "Re-run no more than hourly or on subsequent days to accumulate new unique job IDs; dedup prior snapshots by id/source URL",
+      "geo_priority_config": "configs/feasibility/jobicy_weighting.json"
+    }
+  ]
+}

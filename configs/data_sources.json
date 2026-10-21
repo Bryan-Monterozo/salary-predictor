@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-10-20",
+  "reviewed_on": "2026-10-21",
   "sources": [
     {
       "id": "psa_ows_2022_public_tables",
@@ -38,11 +38,13 @@
         "public_benchmark_with_attribution"
       ],
       "public_benchmark_eligible": true,
-      "enabled_for_import": false,
+      "enabled_for_import": true,
       "local_path": "data/raw/psa/2022 Occupational Wages Survey Statistical Tables.pdf",
       "file_manifest": "configs/local_raw_file_manifest.json",
       "sha256": "402460087ee94f2e2ca6fb107fae64cb18afdc9a6917fa6dd4956f79d27633ed",
-      "local_size_bytes": 713867
+      "local_size_bytes": 713867,
+      "import_scope": "local_immutable_staging_only; never automatic website promotion",
+      "attribution": "Philippine Statistics Authority, 2022 Occupational Wages Survey, August 2022, Tables 1 and 3; derived rows retain source table and page"
     },
     {
       "id": "psa_ows_2024_public_tables",
@@ -227,6 +229,90 @@
       "approved_use": [],
       "public_benchmark_eligible": false,
       "enabled_for_import": false
+    },
+    {
+      "id": "world_bank_step_ph_2015",
+      "name": "World Bank STEP Philippines 2015–2016 household survey public file",
+      "owner": "The World Bank",
+      "source_url": "https://microdata.worldbank.org/catalog/3182",
+      "rights_url": "https://microdata.worldbank.org/terms-of-use",
+      "rights_status": "public_use_conditions_training_and_deployment_unconfirmed",
+      "access_status": "local_verified_read_only",
+      "dataset_role": "individual_earnings",
+      "format": "csv_cp1252",
+      "reference_date": "2015-2016",
+      "retrieved_date": "2026-10-21",
+      "refresh_frequency": "historical_only",
+      "population": "Urban Philippine survey participants aged 15–64 (complex stratified four-stage sampling)",
+      "observation_unit": "One respondent, de-identified microdata; hourly earnings derived field, not monthly salary",
+      "target_definition": "Derived earnings_h hourly labor earnings; field meaning and net/gross integration require documentation review",
+      "currency": "PHP",
+      "wage_period": "hourly",
+      "available_features": [
+        "salary",
+        "earnings_h",
+        "occupation_major_isco",
+        "years_educ",
+        "region",
+        "work_skills_questionnaire",
+        "survey_weights"
+      ],
+      "unsupported_features": [
+        "verified_monthly_gross",
+        "2026_market_compensation",
+        "fine_psoc_code",
+        "verified_skill_causal_effect"
+      ],
+      "approved_use": [],
+      "public_benchmark_eligible": false,
+      "enabled_for_import": false,
+      "local_path": "data/raw/step/step_ph_weights_merged_public.csv",
+      "file_manifest": "configs/local_raw_file_manifest.json",
+      "sha256": "f181d1d32bc48efd5f671acb94c66d2f34e0ebcabcad65ea5a7b05e88abe6fbe",
+      "rights_note": "PUF terms include no redistribution without prior written agreement; separate ML model training and deployment usage review required"
+    },
+    {
+      "id": "jobicy_public_remote_jobs",
+      "name": "Jobicy Philippines-eligible public remote vacancy feed/API",
+      "owner": "Jobicy",
+      "source_url": "https://jobicy.com/api/v2/remote-jobs?count=200",
+      "rights_url": "https://jobicy.com/jobs-rss-feed",
+      "rights_status": "public_api_use_allowed_but_model_training_license_unconfirmed",
+      "access_status": "public_rolling_7day_archive_with_cursor_pagination",
+      "dataset_role": "advertised_salary",
+      "format": "json_xml_7_day_window",
+      "reference_date": "rolling_7_days",
+      "retrieved_date": "2026-10-21",
+      "refresh_frequency": "few_times_daily_max_hourly",
+      "population": "Worldwide remote jobs, 7-day rolling window; original jobGeo eligibility retained",
+      "observation_unit": "One globally deduplicated Jobicy job listing by id/URL (salary optional)",
+      "target_definition": "salaryMin/salaryMax, salaryCurrency, salaryPeriod, not actual worker compensation",
+      "currency": "varies",
+      "wage_period": "varies",
+      "available_features": [
+        "salary",
+        "jobTitle",
+        "jobDescription",
+        "jobGeo",
+        "jobLevel",
+        "salaryMin",
+        "salaryMax",
+        "salaryCurrency",
+        "salaryPeriod"
+      ],
+      "unsupported_features": [
+        "actual_employee_salary",
+        "philippine_local_only",
+        "PHP_monthly_without_FX",
+        "skill_premium_causality"
+      ],
+      "approved_use": [],
+      "public_benchmark_eligible": false,
+      "enabled_for_import": false,
+      "local_path": "data/raw/jobicy",
+      "file_manifest": "configs/local_raw_file_manifest.json",
+      "rights_note": "Public API permits career-tool integrations with attribution; ML training, long-term archives/redistribution rights need confirmation; archive each API JSON result before analysis",
+      "archiving_note": "Five unfiltered API pages were archived; earlier Philippines-filtered JSON/RSS snapshots retained. Archive first, no API response discarded; no model training approval."
     }
   ]
 }

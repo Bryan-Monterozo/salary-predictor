@@ -86,7 +86,9 @@ def test_real_manifest_and_registry_agree_without_loading_raw_data() -> None:
     assert len([p for p in files if p.startswith("data/raw/esco/")]) == 19
     assert psa["local_path"] in files
     assert esco["local_path"] == "data/raw/esco"
-    assert all(not source["enabled_for_import"] for source in register["sources"])
+    assert [s["id"] for s in register["sources"] if s["enabled_for_import"]] == [
+        "psa_ows_2022_public_tables"
+    ]
 
 
 

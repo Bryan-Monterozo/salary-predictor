@@ -1,0 +1,22 @@
+{
+  "contract_version": 1,
+  "source_id": "esco_english_bundle",
+  "source_version": "export-version-unconfirmed-local-2026-10-20",
+  "source_url": "https://esco.ec.europa.eu/en/use-esco/download",
+  "dataset_role": "taxonomy",
+  "file_format": "csv",
+  "rights_status": "reuse_terms_review_before_shipping",
+  "approved_uses": [
+    "inspect_locally_pending_release_terms"
+  ],
+  "reference_date": "2026-10-20",
+  "observation_unit": "One ESCO URI-keyed concept or occupation-skill relationship",
+  "population": "European employment skills and occupations taxonomy; not measured salaries",
+  "compensation_basis": null,
+  "column_mapping": {},
+  "parser_options": {},
+  "table_id": null,
+  "sheet_name": null,
+  "local_path": "data/raw/esco/occupations_en.csv",
+  "file_sha256": "8034348d84b6d1dd24a5bcf9609186ecbba0a85457ee2eacd65bddec33a51b4a"
+}

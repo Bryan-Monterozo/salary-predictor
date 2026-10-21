@@ -1,0 +1,96 @@
+{
+  "policy_version": 1,
+  "status": "DRAFT_NOT_APPROVED_FOR_RUNTIME",
+  "evidence": {
+    "allowed_benchmark_source_ids": [
+      "psa_ows_2022_public_tables"
+    ],
+    "supervised_training_enabled": false,
+    "eligible_supervised_roles": [
+      "individual_earnings",
+      "advertised_salary"
+    ],
+    "require_verified_label_and_feature_permissions": true,
+    "allow_published_aggregate_as_person_level_label": false,
+    "allow_occupation_skill_premium_inference": false
+  },
+  "benchmark": {
+    "allowed_published_dimensions": {
+      "Table 1": [
+        "occupation",
+        "industry"
+      ],
+      "Table 3": [
+        [
+          "occupation"
+        ],
+        [
+          "occupation",
+          "region"
+        ]
+      ]
+    },
+    "exact_source_cell_only": true,
+    "allow_combining_marginal_tables": false,
+    "allow_hierarchy_salary_fallback": false,
+    "allow_unknown_occupation_code_auto_mapping": false,
+    "show_sample_size_when_source_does_not_report_it": false,
+    "data_stale_after_months": 36,
+    "staleness_is_a_warning_not_historical_data_deletion": true
+  },
+  "supervised_draft_thresholds": {
+    "min_occupation_labeled_records": 30,
+    "min_train_distinct_groups": 30,
+    "min_test_distinct_groups": 10,
+    "min_training_time_periods": 2,
+    "min_test_time_periods": 1,
+    "suppress_unsupported_occupation_predictions": true,
+    "status": "DRAFT_REQUIRE_VALIDATION_ON_REAL_PERMISSIONED_COHORT"
+  },
+  "holdout": {
+    "immutable_once_selected": true,
+    "test_cutoff_required_before_training": true,
+    "split_by": [
+      "group_id",
+      "duplicate_cluster_id",
+      "observation_date"
+    ],
+    "source_and_recent_period_stress_tests": true,
+    "older_rows_in_test_groups": "quarantine",
+    "newer_rows_in_train_groups": "quarantine",
+    "train_period": "before_cutoff",
+    "test_period": "on_or_after_cutoff",
+    "encoders_and_imputers_fit": "train_only",
+    "never_use_as_feature": [
+      "salary",
+      "wage",
+      "income",
+      "target",
+      "monthly_php",
+      "gross_pay",
+      "net_pay",
+      "original_amount_min",
+      "original_amount_max",
+      "normalized",
+      "observation_id",
+      "group_id",
+      "duplicate_cluster_id",
+      "source_id",
+      "date_after_outcome"
+    ],
+    "eligible_predictor_fields": [
+      "occupation_psoc_code",
+      "region_psgc_code",
+      "years_experience",
+      "education_level",
+      "normalized_skills",
+      "industry_code",
+      "employment_context"
+    ]
+  },
+  "limitations": [
+    "Source aggregate cells do not have individual worker sample sizes",
+    "No model MAE, confidence interval, or personalized skill effect may be reported",
+    "2022 region names must not be backfilled with newer PSGC administrative changes"
+  ]
+}

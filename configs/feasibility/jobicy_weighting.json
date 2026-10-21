@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "PROPOSED_NOT_APPROVED_FOR_MODEL_TRAINING",
+  "purpose": "Prefer Asia-Pacific-eligible remote advertised vacancies in a future model; NOT a salary adjustment",
+  "cohort": "jobicy_advertised_remote_salaries_only",
+  "label_field": "jobGeo",
+  "weighting_unit": "per unique listing",
+  "rules": {
+    "apac_eligible_weight": "2.0",
+    "non_apac_or_unknown_weight": "1.0",
+    "anywhere_weight": "1.0"
+  },
+  "apac_geographic_tokens": [
+    "APAC",
+    "Asia",
+    "Asia Pacific",
+    "Philippines",
+    "Australia",
+    "New Zealand",
+    "Singapore",
+    "India",
+    "Japan",
+    "Malaysia",
+    "Indonesia",
+    "Thailand",
+    "Vietnam",
+    "Hong Kong",
+    "China",
+    "Taiwan",
+    "South Korea",
+    "Pakistan",
+    "Bangladesh",
+    "Cambodia",
+    "Sri Lanka",
+    "Nepal",
+    "Fiji"
+  ],
+  "restrictions": [
+    "Do not treat geo eligibility as employer location or salary purchasing power",
+    "Do not convert USD to PHP or modify salary labels",
+    "Only count unique Jobicy ID/source URL; never train on API snapshots independently",
+    "Validate within salary currency/period, occupation and geography before choosing weight",
+    "Evaluate unweighted and weighted models with group/time holdout, calibration and region subgroup errors",
+    "No approval to train or deploy is implied"
+  ],
+  "training_enabled": false
+}

@@ -1,0 +1,22 @@
+{
+  "contract_version": 1,
+  "source_id": "psa_psoc_2022_update",
+  "source_version": "user-supplied-2022-psoc-xlsx-revision-unconfirmed",
+  "source_url": "https://psa.gov.ph/classification/psoc",
+  "local_path": "data/raw/psoc/2022-psoc.xlsx",
+  "file_sha256": "666e276e061efcf6939a4839420ddb0a9a30d3786ab41c5892a81a915858941c",
+  "dataset_role": "taxonomy",
+  "file_format": "xlsx",
+  "rights_status": "verified_cc_by_public_material",
+  "approved_uses": [
+    "taxonomy_with_attribution"
+  ],
+  "reference_date": "2025-03-04",
+  "observation_unit": "Four digit occupation unit and higher PSOC classification groups",
+  "population": "Classification metadata, no pay records",
+  "compensation_basis": null,
+  "column_mapping": {},
+  "parser_options": {},
+  "table_id": null,
+  "sheet_name": null
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "observed_on": "2026-10-21",
-  "source_note": "20 original source files were previously verified against uploads. 2022-psoc.xlsx is newly user-provided, locally inspected; exact official distribution/version is unconfirmed. Not a license approval.",
+  "source_note": "21 previously audited source files plus STEP 2015\u20132016 CSV/questionnaire; STEP data has access restrictions. Any Jobicy API result must be archived under data/raw/jobicy with per-file SHA before analysis.",
   "esco_export_version": "unconfirmed",
   "files": [
     {
@@ -119,6 +119,90 @@
       "sha256": "40bd1884f1c62b91ab86b6c87d7fab11b082c17b425975d0d178d1b5cb5e01ca"
     },
     {
+      "path": "data/raw/jobicy/jobicy-api-20261021T045233+0000-1f845be2d22464fd.json",
+      "sha256": "1f845be2d22464fd4c345221a801d0eb9aeadae9cb2db589688111d7965875dc",
+      "bytes": 546923,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T045233+0000-1f845be2d22464fd.meta.json",
+      "sha256": "bb83fd281bc54f1ce1d9f2e7dc4707009c049f16136954f758a35273a4298b7c",
+      "bytes": 446,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T052935+0000-0e4c62d9bd5d1fec.json",
+      "sha256": "0e4c62d9bd5d1feccd9cf9c88bf6e525720f0dd7e858198ebf98365e369b7a3e",
+      "bytes": 1672074,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T052935+0000-0e4c62d9bd5d1fec.meta.json",
+      "sha256": "a3d0b4961b76b068b0c9572fdca393606a290f6d53db26d675059e1803dd8ab7",
+      "bytes": 430,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T052936+0000-f307b545cdfd831a.json",
+      "sha256": "f307b545cdfd831a5db49e546c76d8d34d15b3bbb2b39909b6e6b6786ae4217d",
+      "bytes": 1746731,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T052936+0000-f307b545cdfd831a.meta.json",
+      "sha256": "74967699d5dedc47d746c0c5c6de0a447ad60ec1b4716426b70a66eefe85c069",
+      "bytes": 557,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T052943+0000-a15224fe0317dce4.json",
+      "sha256": "a15224fe0317dce406ccb75dba7da7f45e1c918beead57728a263ac80a32fcb4",
+      "bytes": 1593724,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T052943+0000-a15224fe0317dce4.meta.json",
+      "sha256": "8aab286489a9abb58213de1e71340c4802ca3514acd12038d8ccae599b4d987b",
+      "bytes": 557,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T052950+0000-80c0c5d31fbcf558.json",
+      "sha256": "80c0c5d31fbcf5582102942064d8ec35998540e9f35a93ba73ab3c36681103d7",
+      "bytes": 1681096,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T052950+0000-80c0c5d31fbcf558.meta.json",
+      "sha256": "bf943409bdaa3112256595ca65d29a5f2f8171b972ce6802eb850dec5a5967fc",
+      "bytes": 557,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T052950+0000-82d13c3e31d741f0.json",
+      "sha256": "82d13c3e31d741f07cd985d69c97e5094fc8abaa905a75f5aa14c05f43c74bab",
+      "bytes": 1650741,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-api-20261021T052950+0000-82d13c3e31d741f0.meta.json",
+      "sha256": "4e5f92120e08f5951a7c44fb529481f49f84d2533f531fd2c4d9023995f2903d",
+      "bytes": 557,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-rss-20261021T045236+0000-866324e6f18fd9ce.meta.json",
+      "sha256": "0e91f13c07610556317287b24df4ed454307b1e9f0e6192378f3871e706e9324",
+      "bytes": 426,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
+      "path": "data/raw/jobicy/jobicy-rss-20261021T045236+0000-866324e6f18fd9ce.xml",
+      "sha256": "866324e6f18fd9ce3d7cd0d6770b80636308061a22ffafd5210baf2d76ce9e95",
+      "bytes": 1395300,
+      "source_id": "jobicy_public_remote_jobs"
+    },
+    {
       "path": "data/raw/psa/2022 Occupational Wages Survey Statistical Tables.pdf",
       "sha256": "402460087ee94f2e2ca6fb107fae64cb18afdc9a6917fa6dd4956f79d27633ed",
       "bytes": 713867,
@@ -131,6 +215,22 @@
       "source_note": "User-supplied PSOC workbook; 10 Group sheets; 466 unit codes. Original official download/version is not independently verified.",
       "workbook_sheets": 10,
       "unit_groups": 466
+    },
+    {
+      "path": "data/raw/step/2.0_step_eec_questionnaire_withoutvar_en_20150817.pdf",
+      "sha256": "c8549dc07631bfebe7961ecb572f90e42dacae1b91a64175556cc525e3527e94",
+      "bytes": 1357786,
+      "source_reviewed_pages": 60,
+      "source_id": "world_bank_step_ph_2015"
+    },
+    {
+      "path": "data/raw/step/step_ph_weights_merged_public.csv",
+      "sha256": "f181d1d32bc48efd5f671acb94c66d2f34e0ebcabcad65ea5a7b05e88abe6fbe",
+      "bytes": 15582275,
+      "rows": 3000,
+      "columns": 1276,
+      "encoding": "cp1252",
+      "source_id": "world_bank_step_ph_2015"
     }
   ]
 }

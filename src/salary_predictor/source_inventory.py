@@ -6,6 +6,7 @@ import hashlib
 import json
 import sys
 from pathlib import Path
+from xml.etree import ElementTree
 from zipfile import BadZipFile, ZipFile
 
 
@@ -43,7 +44,8 @@ def verify_raw_files(root: Path, manifest: dict) -> list[str]:
         if path.suffix.lower() == ".csv":
             try:
                 csv.field_size_limit(sys.maxsize)
-                with path.open(encoding="utf-8-sig", newline="") as file:
+                encoding = "cp1252" if relative_path.startswith("data/raw/step/") else "utf-8-sig"
+                with path.open(encoding=encoding, newline="") as file:
                     reader = csv.reader(file)
                     header = next(reader)
                     count = 0
@@ -70,6 +72,28 @@ def verify_raw_files(root: Path, manifest: dict) -> list[str]:
                         errors.append(f"Invalid workbook: {relative_path}")
             except BadZipFile:
                 errors.append(f"Cannot read XLSX: {relative_path}")
+        elif path.suffix.lower() == ".json":
+            try:
+                with path.open(encoding="utf-8") as file:
+                    data = json.load(file)
+                if relative_path.startswith("data/raw/jobicy/") and relative_path.endswith(
+                    ".meta.json"
+                ):
+                    body = path.parent / data["raw_filename"]
+                    if (
+                        body.name != data["raw_filename"]
+                        or not body.is_file()
+                        or hashlib.sha256(body.read_bytes()).hexdigest()
+                        != data["response_sha256"]
+                    ):
+                        errors.append(f"Invalid Jobicy archive lineage: {relative_path}")
+            except (ValueError, KeyError, UnicodeError, OSError):
+                errors.append(f"Invalid JSON: {relative_path}")
+        elif path.suffix.lower() == ".xml":
+            try:
+                ElementTree.parse(path)
+            except ElementTree.ParseError:
+                errors.append(f"Invalid XML: {relative_path}")
         elif path.suffix.lower() == ".pdf":
             with path.open("rb") as file:
                 if not file.read(5).startswith(b"%PDF-"):

@@ -11,6 +11,9 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]
+ingest = [
+  "pypdf>=5,<7",
+]
 web = [
   "Flask>=3.1,<4",
   "pypdf>=5,<7",

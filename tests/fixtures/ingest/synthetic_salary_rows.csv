@@ -1,0 +1,10 @@
+observation_id,source_id,record_type,currency,original_amount_min,original_amount_max,original_period,target_scope,pay_component,tax_basis,thirteenth_month_included,allowances_included,observation_date,occupation_psoc_code,region_psgc_code,derivation_notes,observed_occupation_psoc_code,observed_region_psgc_code,observed_years_experience,observed_education_level,observed_normalized_skills
+synthetic-001,fixture_salary_cohort,individual_earnings,PHP,48000.00,,monthly,individual_worker,total,gross,false,true,2026-01,2512,1300000000,Test fixture only,true,true,false,false,false
+synthetic-002,fixture_salary_cohort,individual_earnings,PHP,1200,,daily,individual_worker,total,gross,false,true,2026-01,2512,1300000000,Test fixture only,true,true,false,false,false
+synthetic-003,fixture_salary_cohort,individual_earnings,PHP,600000,,annual,individual_worker,total,gross,false,true,2026-01,2512,1300000000,Test fixture only,true,true,false,false,false
+synthetic-001,fixture_salary_cohort,individual_earnings,PHP,48000,,monthly,individual_worker,total,gross,false,true,2026-01,2512,1300000000,Test fixture only,true,true,false,false,false
+synthetic-004,fixture_salary_cohort,individual_earnings,unknown,48000.00,,monthly,individual_worker,total,gross,false,true,2026-01,2512,1300000000,Test fixture only,true,true,false,false,false
+synthetic-005,fixture_salary_cohort,individual_earnings,PHP,48000.00,,monthly,individual_worker,total,net,false,true,2026-01,2512,1300000000,Test fixture only,true,true,false,false,false
+synthetic-006,fixture_salary_cohort,individual_earnings,PHP,0,,monthly,individual_worker,total,gross,false,true,2026-01,2512,1300000000,Test fixture only,true,true,false,false,false
+synthetic-007,fixture_salary_cohort,individual_earnings,PHP,48000.00,,fortnightly,individual_worker,total,gross,false,true,2026-01,2512,1300000000,Test fixture only,true,true,false,false,false
+synthetic-008,fixture_salary_cohort,individual_earnings,PHP,48000.00,,monthly,individual_worker,total,gross,false,true,2026-01,2512,1300000000,Test fixture only,true,true,maybe,false,false

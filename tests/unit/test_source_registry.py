@@ -16,7 +16,7 @@ EXAMPLES = ROOT / "tests" / "fixtures" / "source_evidence_samples.json"
 def test_source_register_is_complete_and_valid() -> None:
     register = load_source_register(REGISTRY)
     assert not validate_source_register(register)
-    assert len(register["sources"]) == 6
+    assert len(register["sources"]) == 8
 
 
 def test_public_benchmarks_are_separate_from_training_data() -> None:
@@ -25,8 +25,12 @@ def test_public_benchmarks_are_separate_from_training_data() -> None:
 
     assert approved == ["psa_ows_2022_public_tables", "psa_ows_2024_public_tables"]
     assert all(s["dataset_role"] == "aggregate_benchmark" for s in sources if s["public_benchmark_eligible"])
-    assert all(not s["enabled_for_import"] for s in sources)
-    assert not any(s["dataset_role"] in {"individual_earnings", "advertised_salary"} for s in sources)
+    enabled = [s["id"] for s in sources if s["enabled_for_import"]]
+    assert enabled == ["psa_ows_2022_public_tables"]
+    for source in sources:
+        if source["dataset_role"] in {"individual_earnings", "advertised_salary"}:
+            assert source["enabled_for_import"] is False
+            assert source["approved_use"] == []
 
 
 def test_source_verified_sample_shapes_match_declared_scopes() -> None:
