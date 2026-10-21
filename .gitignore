@@ -94,6 +94,7 @@ logs/
 .agent/
 .codicks/
 .history/
+docs/
 
 # Editors, OS and notebooks
 .DS_Store

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-10-20",
+  "source_note": "Local files verified to match files reviewed in the conversation. This manifest is not a license approval or released dataset.",
+  "esco_export_version": "unconfirmed",
+  "files": [
+    {
+      "path": "data/raw/esco/ISCOGroups_en.csv",
+      "rows": 619,
+      "columns": 8,
+      "sha256": "7a829bb6fddccbdb028d3ae69d822f2f1ba581522667f6185949c6d0788eaa1c"
+    },
+    {
+      "path": "data/raw/esco/broaderRelationsOccPillar_en.csv",
+      "rows": 3648,
+      "columns": 6,
+      "sha256": "b6b457a7b248e87734a5ef01f59f0bd4d083b6ad5e9251f6ed4cce51d69c6383"
+    },
+    {
+      "path": "data/raw/esco/broaderRelationsSkillPillar_en.csv",
+      "rows": 20819,
+      "columns": 6,
+      "sha256": "56b70f4852b1f53c6192c979310c34c93f95436621d907083cf0d55b51d8e42d"
+    },
+    {
+      "path": "data/raw/esco/conceptSchemes_en.csv",
+      "rows": 20,
+      "columns": 7,
+      "sha256": "4e5b4800e6cdc2013df0f22dfff72c0499cdce8bf9cfa333d6c4c14879dce517"
+    },
+    {
+      "path": "data/raw/esco/dictionary_en.csv",
+      "rows": 160,
+      "columns": 4,
+      "sha256": "f20857239063a52af0a7668ae5b178144cb33ff626519fb50451457d59b54fec"
+    },
+    {
+      "path": "data/raw/esco/digCompSkillsCollection_en.csv",
+      "rows": 25,
+      "columns": 10,
+      "sha256": "814108ed9bc93268abc6d717bbd36f876a73180da2ff1a89b4f867c50e1ae9d4"
+    },
+    {
+      "path": "data/raw/esco/digitalSkillsCollection_en.csv",
+      "rows": 1284,
+      "columns": 10,
+      "sha256": "9f2ee9179f0720826cbfc65627bd3642926ba4dfb3bf29250f22cb232c225b1e"
+    },
+    {
+      "path": "data/raw/esco/greenShareOcc_en.csv",
+      "rows": 3590,
+      "columns": 5,
+      "sha256": "b181bde83460dbd766268893dd6db4393006c15d788ae4c0f3f41c49719ab16a"
+    },
+    {
+      "path": "data/raw/esco/greenSkillsCollection_en.csv",
+      "rows": 629,
+      "columns": 10,
+      "sha256": "502eaee4f496e7576ee078a76d5da03fa14f5476f740ca965ca2ef596d9683ab"
+    },
+    {
+      "path": "data/raw/esco/languageSkillsCollection_en.csv",
+      "rows": 359,
+      "columns": 10,
+      "sha256": "93b2ca9ef1300a34c2262753e33dbcf6a3a17ad7d2afe435849649818ec6cf33"
+    },
+    {
+      "path": "data/raw/esco/occupationSkillRelations_en.csv",
+      "rows": 126051,
+      "columns": 6,
+      "sha256": "e1a46511f0ef4d505f106f1d41f528ef76d289f93e59d4d0cbaac38986102c44"
+    },
+    {
+      "path": "data/raw/esco/occupations_en.csv",
+      "rows": 3043,
+      "columns": 15,
+      "sha256": "8034348d84b6d1dd24a5bcf9609186ecbba0a85457ee2eacd65bddec33a51b4a"
+    },
+    {
+      "path": "data/raw/esco/researchOccupationsCollection_en.csv",
+      "rows": 122,
+      "columns": 8,
+      "sha256": "85993f6460b6bb008985cd40341c3d373fac9989d854f76d2d3c6fc8dc2d6d1a"
+    },
+    {
+      "path": "data/raw/esco/researchSkillsCollection_en.csv",
+      "rows": 40,
+      "columns": 10,
+      "sha256": "fd9b6bd45df2bad68e50d963ac366b5c7dec2917e178e69003b6d94bb1e41d13"
+    },
+    {
+      "path": "data/raw/esco/skillGroups_en.csv",
+      "rows": 640,
+      "columns": 11,
+      "sha256": "644b68a174299eb05336eec36e0716c4671a0c6bdd4ac268803ecd6533dc739d"
+    },
+    {
+      "path": "data/raw/esco/skillSkillRelations_en.csv",
+      "rows": 5818,
+      "columns": 5,
+      "sha256": "64a5f8fb7b8dda4932ff06db4738ce1beed3906e45a49b14453349056c609439"
+    },
+    {
+      "path": "data/raw/esco/skillsHierarchy_en.csv",
+      "rows": 640,
+      "columns": 14,
+      "sha256": "295133872c6be7b7560de943efa4a6aab833a1b15af4d60c03b050ab0a75edcb"
+    },
+    {
+      "path": "data/raw/esco/skills_en.csv",
+      "rows": 13960,
+      "columns": 13,
+      "sha256": "d03b10efca94b4bcfa260a992cfde89c375f0fa12095d6662a663cfd2f9f2950"
+    },
+    {
+      "path": "data/raw/esco/transversalSkillsCollection_en.csv",
+      "rows": 95,
+      "columns": 10,
+      "sha256": "40bd1884f1c62b91ab86b6c87d7fab11b082c17b425975d0d178d1b5cb5e01ca"
+    },
+    {
+      "path": "data/raw/psa/2022 Occupational Wages Survey Statistical Tables.pdf",
+      "sha256": "402460087ee94f2e2ca6fb107fae64cb18afdc9a6917fa6dd4956f79d27633ed",
+      "bytes": 713867,
+      "source_reviewed_pages": 58
+    }
+  ]
+}

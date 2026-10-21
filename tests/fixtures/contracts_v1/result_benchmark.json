@@ -1,0 +1,26 @@
+{
+  "contract_version": 1,
+  "mode": "MARKET_BENCHMARK",
+  "central_php_monthly": "45520",
+  "lower_php_monthly": null,
+  "upper_php_monthly": null,
+  "range_basis": null,
+  "basis": "published_average_monthly_wage",
+  "data_as_of": "2022-08",
+  "occupation_specificity": "exact",
+  "region_specificity": "national",
+  "explanation": "Published industry-specific national monthly average, not an individual estimate.",
+  "limitations": [
+    "Establishments with 20 or more workers",
+    "Not specific to experience or skills"
+  ],
+  "source_id": "psa_ows_2022_public_tables",
+  "artifact_version": null,
+  "currency": "PHP",
+  "period": "monthly",
+  "source_version": "2022-08-statistical-tables",
+  "reliability_flags": [
+    "historical_source",
+    "limited_survey_population"
+  ]
+}

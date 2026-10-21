@@ -1,0 +1,8 @@
+{
+  "contract_version": 1,
+  "source_id": "esco_english_bundle",
+  "concept_uri": "http://data.europa.eu/esco/occupation/00030d09-2b3a-4efd-87cc-c4ea39d27c34",
+  "kind": "occupation",
+  "label": "technical director",
+  "code": null
+}

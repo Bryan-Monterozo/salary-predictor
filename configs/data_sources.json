@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-20",
+  "sources": [
+    {
+      "id": "psa_ows_2022_public_tables",
+      "name": "PSA 2022 Occupational Wages Survey statistical tables",
+      "owner": "Philippine Statistics Authority",
+      "source_url": "https://psa.gov.ph/content/highlights-2022-occupational-wages-survey-ows",
+      "rights_url": "https://psa.gov.ph/terms-of-use",
+      "rights_status": "verified_cc_by_public_material",
+      "access_status": "local_verified_read_only",
+      "dataset_role": "aggregate_benchmark",
+      "format": "pdf",
+      "reference_date": "2022-08",
+      "retrieved_date": "2026-10-20",
+      "refresh_frequency": "biennial_publication_check",
+      "population": "Full-time time-rated workers in Philippine formal establishments with 20 or more workers",
+      "observation_unit": "Published statistical cell by industry and selected occupation; separate two-occupation regional benchmark cells",
+      "target_definition": "Average monthly wage rate: basic pay plus regular/guaranteed cash allowances",
+      "currency": "PHP",
+      "wage_period": "monthly",
+      "available_features": [
+        "psic_industry_code",
+        "psoc_occupation_code",
+        "occupation_name",
+        "national_scope",
+        "region_for_two_benchmark_jobs_only"
+      ],
+      "unsupported_features": [
+        "years_experience",
+        "education",
+        "skills",
+        "individual_salary",
+        "joint_occupation_region_for_all_jobs"
+      ],
+      "approved_use": [
+        "public_benchmark_with_attribution"
+      ],
+      "public_benchmark_eligible": true,
+      "enabled_for_import": false,
+      "local_path": "data/raw/psa/2022 Occupational Wages Survey Statistical Tables.pdf",
+      "file_manifest": "configs/local_raw_file_manifest.json",
+      "sha256": "402460087ee94f2e2ca6fb107fae64cb18afdc9a6917fa6dd4956f79d27633ed",
+      "local_size_bytes": 713867
+    },
+    {
+      "id": "psa_ows_2024_public_tables",
+      "name": "PSA 2024 Occupational Wages Survey released tables",
+      "owner": "Philippine Statistics Authority",
+      "source_url": "https://psa.gov.ph/statistics/occupational-wages-survey/stat-tables/released/2024",
+      "rights_url": "https://psa.gov.ph/terms-of-use",
+      "rights_status": "verified_cc_by_public_material",
+      "access_status": "official_website_not_local",
+      "dataset_role": "aggregate_benchmark",
+      "format": "xlsx_pdf",
+      "reference_date": "2024-08",
+      "retrieved_date": "2026-10-20",
+      "refresh_frequency": "biennial_publication_check",
+      "population": "Full-time time-rated workers in Philippine formal establishments with 10 or more workers",
+      "observation_unit": "Published industry, region or benchmark-occupation aggregate cell; table-specific dimensions",
+      "target_definition": "Published average monthly wage rate: basic pay plus regular/guaranteed cash allowances",
+      "currency": "PHP",
+      "wage_period": "monthly",
+      "available_features": [
+        "major_industry",
+        "region",
+        "selected_benchmark_occupations_by_published_table"
+      ],
+      "unsupported_features": [
+        "years_experience",
+        "education",
+        "skills",
+        "individual_salary",
+        "arbitrary_industry_occupation_region_joint_cell"
+      ],
+      "approved_use": [
+        "public_benchmark_with_attribution"
+      ],
+      "public_benchmark_eligible": true,
+      "enabled_for_import": false
+    },
+    {
+      "id": "psa_psoc_2022_update",
+      "name": "2022 updates to 2012 Philippine Standard Occupational Classification",
+      "owner": "Philippine Statistics Authority",
+      "source_url": "https://psa.gov.ph/classification/psoc",
+      "rights_url": "https://psa.gov.ph/terms-of-use",
+      "rights_status": "verified_cc_by_public_material",
+      "access_status": "official_website_not_local",
+      "dataset_role": "taxonomy",
+      "format": "reference_web_or_file_to_verify",
+      "reference_date": "2022",
+      "retrieved_date": "2026-10-20",
+      "refresh_frequency": "check_official_revisions",
+      "population": "PH occupation classification, not an employee salary dataset",
+      "observation_unit": "Occupation code and hierarchy entry",
+      "target_definition": null,
+      "currency": null,
+      "wage_period": null,
+      "available_features": [
+        "psoc_code",
+        "occupation_title",
+        "hierarchy"
+      ],
+      "unsupported_features": [
+        "salary",
+        "skills_effect",
+        "years_experience"
+      ],
+      "approved_use": [
+        "taxonomy_with_attribution"
+      ],
+      "public_benchmark_eligible": false,
+      "enabled_for_import": false
+    },
+    {
+      "id": "esco_english_bundle",
+      "name": "ESCO English language CSV export (19 verified local files)",
+      "owner": "European Commission — DG Employment, Social Affairs and Inclusion",
+      "source_url": "https://esco.ec.europa.eu/en/use-esco/download",
+      "rights_url": "https://esco.ec.europa.eu/en/use-esco",
+      "rights_status": "reuse_terms_review_before_shipping",
+      "access_status": "local_verified_read_only",
+      "dataset_role": "taxonomy",
+      "format": "csv_bundle",
+      "reference_date": "unknown_export_version",
+      "retrieved_date": "2026-10-20",
+      "refresh_frequency": "check_official_releases",
+      "population": "European occupation and skills classification; not PH payroll data",
+      "observation_unit": "Occupation, skill, collection or relationship (URI keyed)",
+      "target_definition": null,
+      "currency": null,
+      "wage_period": null,
+      "available_features": [
+        "occupationUri",
+        "conceptUri",
+        "skillUri",
+        "preferredLabel",
+        "iscoGroup",
+        "relationType"
+      ],
+      "unsupported_features": [
+        "salary",
+        "employee_salary",
+        "experience",
+        "education",
+        "skill_premium"
+      ],
+      "approved_use": [
+        "inspect_locally_pending_release_terms"
+      ],
+      "public_benchmark_eligible": false,
+      "enabled_for_import": false,
+      "local_path": "data/raw/esco",
+      "file_manifest": "configs/local_raw_file_manifest.json",
+      "verified_files": 19
+    },
+    {
+      "id": "nwpc_wage_orders",
+      "name": "NWPC and regional wage board minimum wage orders",
+      "owner": "DOLE National Wages and Productivity Commission",
+      "source_url": "https://nwpc.dole.gov.ph/ncr/",
+      "rights_url": null,
+      "rights_status": "usage_terms_unverified",
+      "access_status": "public_website_not_local",
+      "dataset_role": "statutory_minimum",
+      "format": "web_tables_and_wage_orders",
+      "reference_date": "2026-09-26_ncr_example_only",
+      "retrieved_date": "2026-10-20",
+      "refresh_frequency": "on_each_new_wage_order",
+      "population": "Covered employees by area, sector, establishment size and effective date",
+      "observation_unit": "Legally applicable wage order rule and daily floor",
+      "target_definition": "Statutory daily minimum wage, NOT observed occupational earnings",
+      "currency": "PHP",
+      "wage_period": "daily",
+      "available_features": [
+        "region",
+        "industry_sector",
+        "employer_size",
+        "effective_date",
+        "daily_floor"
+      ],
+      "unsupported_features": [
+        "typical_monthly_salary",
+        "individual_salary",
+        "occupation_salary"
+      ],
+      "approved_use": [],
+      "public_benchmark_eligible": false,
+      "enabled_for_import": false
+    },
+    {
+      "id": "psa_ows_restricted_microdata",
+      "name": "OWS restricted research microdata (not obtained)",
+      "owner": "Philippine Statistics Authority",
+      "source_url": "https://psada.psa.gov.ph/catalog/OWS/about",
+      "rights_url": "https://psada.psa.gov.ph/catalog/OWS/about",
+      "rights_status": "restricted_data_enclave_access_required",
+      "access_status": "not_available",
+      "dataset_role": "restricted_microdata_candidate",
+      "format": "restricted_dataset_unknown",
+      "reference_date": "unknown",
+      "retrieved_date": "2026-10-20",
+      "refresh_frequency": "review_by_access_approval",
+      "population": "Establishment survey records, precise unit/variables pending approved access",
+      "observation_unit": "Unverified; not confirmed individual worker salary rows",
+      "target_definition": "Unverified for personal salary regression",
+      "currency": null,
+      "wage_period": null,
+      "available_features": [],
+      "unsupported_features": [
+        "verified_person_salary_and_skills",
+        "verified_person_salary_and_experience"
+      ],
+      "approved_use": [],
+      "public_benchmark_eligible": false,
+      "enabled_for_import": false
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "contract_version": 1,
+  "observation_id": "fixture-salary-001",
+  "source_id": "fixture-only-not-real",
+  "record_type": "individual_earnings",
+  "currency": "PHP",
+  "original_amount_min": "48000.00",
+  "original_amount_max": null,
+  "original_period": "monthly",
+  "target_scope": "individual_worker",
+  "pay_component": "total",
+  "tax_basis": "unknown",
+  "thirteenth_month_included": null,
+  "allowances_included": null,
+  "observation_date": "2026-01",
+  "occupation_psoc_code": null,
+  "region_psgc_code": null,
+  "predictor_completeness": {
+    "occupation_psoc_code": false,
+    "region_psgc_code": false,
+    "years_experience": true,
+    "education_level": true,
+    "normalized_skills": true
+  },
+  "derivation_notes": "Fictional validation fixture only. Never train on this."
+}

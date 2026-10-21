@@ -1,0 +1,13 @@
+{
+  "feature_schema_version": 1,
+  "occupation_psoc_code": null,
+  "region_psgc_code": null,
+  "years_experience": "2.5",
+  "education_level": "bachelor",
+  "normalized_skills": [
+    "demo:skill:python",
+    "demo:skill:sql"
+  ],
+  "industry_code": null,
+  "employment_context": "full_time"
+}

@@ -1,0 +1,26 @@
+{
+  "contract_version": 1,
+  "observation_id": "psa-2022-table1-page10-j62-2512",
+  "source_id": "psa_ows_2022_public_tables",
+  "reference_date": "2022-08",
+  "source_table": "Table 1",
+  "source_page": 10,
+  "population": "Full-time time-rated workers in establishments with 20 or more workers",
+  "published_dimensions": [
+    "occupation",
+    "industry"
+  ],
+  "occupation_psoc_code": null,
+  "occupation_label": "Software Developers",
+  "region_psgc_code": null,
+  "region_label": null,
+  "industry_code": "J62",
+  "industry_label": null,
+  "metric": "mean_monthly_wage",
+  "pay_component": "total",
+  "tax_basis": "unknown",
+  "currency": "PHP",
+  "period": "monthly",
+  "amount_php_monthly": "45520",
+  "source_version": "2022-08-statistical-tables"
+}

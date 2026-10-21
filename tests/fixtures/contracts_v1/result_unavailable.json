@@ -1,0 +1,24 @@
+{
+  "contract_version": 1,
+  "mode": "UNAVAILABLE",
+  "central_php_monthly": null,
+  "lower_php_monthly": null,
+  "upper_php_monthly": null,
+  "range_basis": null,
+  "basis": "none",
+  "data_as_of": null,
+  "occupation_specificity": "unknown",
+  "region_specificity": "unknown",
+  "explanation": "No approved salary data for this profile.",
+  "limitations": [
+    "No matching released benchmark"
+  ],
+  "source_id": null,
+  "artifact_version": null,
+  "currency": "PHP",
+  "period": "monthly",
+  "source_version": null,
+  "reliability_flags": [
+    "no_approved_source"
+  ]
+}

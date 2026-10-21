@@ -1,0 +1,24 @@
+{
+  "contract_version": 1,
+  "mode": "MODEL_ESTIMATE",
+  "central_php_monthly": "50000.00",
+  "lower_php_monthly": null,
+  "upper_php_monthly": null,
+  "range_basis": null,
+  "basis": "model_prediction",
+  "data_as_of": "2026-01",
+  "occupation_specificity": "unknown",
+  "region_specificity": "unknown",
+  "explanation": "Fictional contract example only. No model was trained.",
+  "limitations": [
+    "Not a deployable model artifact"
+  ],
+  "source_id": null,
+  "artifact_version": "fixture-only-not-approved",
+  "currency": "PHP",
+  "period": "monthly",
+  "source_version": null,
+  "reliability_flags": [
+    "synthetic_example_only"
+  ]
+}

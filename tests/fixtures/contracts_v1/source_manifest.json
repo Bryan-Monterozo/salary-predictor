@@ -1,0 +1,22 @@
+{
+  "contract_version": 1,
+  "source_id": "psa_ows_2022_public_tables",
+  "source_version": "2022-08-statistical-tables",
+  "source_url": "https://psa.gov.ph/content/highlights-2022-occupational-wages-survey-ows",
+  "local_path": "data/raw/psa/2022 Occupational Wages Survey Statistical Tables.pdf",
+  "file_sha256": "402460087ee94f2e2ca6fb107fae64cb18afdc9a6917fa6dd4956f79d27633ed",
+  "dataset_role": "aggregate_benchmark",
+  "file_format": "pdf",
+  "rights_status": "verified_cc_by_public_material",
+  "approved_uses": [
+    "public_benchmark_with_attribution"
+  ],
+  "reference_date": "2022-08",
+  "observation_unit": "Published aggregate wage table cell",
+  "population": "Full-time time-rated workers at establishments with 20 or more workers",
+  "compensation_basis": "Monthly wage rate: basic plus regular cash allowances",
+  "column_mapping": {},
+  "table_id": "Table 1",
+  "sheet_name": null,
+  "parser_options": {}
+}

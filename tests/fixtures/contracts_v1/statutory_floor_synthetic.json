@@ -1,0 +1,15 @@
+{
+  "contract_version": 1,
+  "observation_id": "fixture-only-floor-001",
+  "source_id": "fixture-nwpc-not-real",
+  "source_version": "fixture-only",
+  "effective_date": "2026-01-01",
+  "region_psgc_code": null,
+  "region_label": "Example region",
+  "sector": "Example sector",
+  "coverage": "Invented test case, not a current wage order",
+  "amount_php_daily": "500.00",
+  "exclusions": "Synthetic sample. Not a legal wage statement.",
+  "currency": "PHP",
+  "period": "daily"
+}

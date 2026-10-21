@@ -1,0 +1,47 @@
+{
+  "esco": {
+    "occupation": {
+      "conceptUri": "http://data.europa.eu/esco/occupation/00030d09-2b3a-4efd-87cc-c4ea39d27c34",
+      "iscoGroup": "2654",
+      "preferredLabel": "technical director"
+    },
+    "skill": {
+      "conceptUri": "http://data.europa.eu/esco/skill/fed5b267-73fa-461d-9f69-827c78beb39d",
+      "preferredLabel": "theatre techniques",
+      "skillType": "knowledge"
+    },
+    "relation": {
+      "occupationUri": "http://data.europa.eu/esco/occupation/00030d09-2b3a-4efd-87cc-c4ea39d27c34",
+      "skillUri": "http://data.europa.eu/esco/skill/fed5b267-73fa-461d-9f69-827c78beb39d",
+      "relationType": "essential"
+    }
+  },
+  "psa_ows_2022": [
+    {
+      "table": 1,
+      "pdf_page": 1,
+      "industry_code": "A01/A02",
+      "occupation_code": "1311",
+      "occupation_label": "Farm/Plantation/Forest Supervisors",
+      "monthly_wage_php": 18174,
+      "scope": "selected_industry_occupation_national"
+    },
+    {
+      "table": 1,
+      "pdf_page": 10,
+      "industry_code": "J62",
+      "occupation_code": "2512",
+      "occupation_label": "Software Developers",
+      "monthly_wage_php": 45520,
+      "scope": "selected_industry_occupation_national"
+    },
+    {
+      "table": 3,
+      "pdf_page": 17,
+      "region": "National Capital Region",
+      "occupation_label": "Accounting and Bookkeeping Clerks",
+      "monthly_wage_php": 24530,
+      "scope": "two_benchmark_occupations_by_region"
+    }
+  ]
+}
