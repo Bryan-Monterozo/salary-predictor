@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading">
+  <h1>Experimental salary scenario</h1>
+  <p>Run the local trained Jobicy model. Optional STEP and PSA context uses only the source details you explicitly enter.</p>
+</div>
+<div class="notice" role="note">
+  <strong>Local research only — not a Philippine salary prediction.</strong>
+  Jobicy estimates worldwide remote advertised pay in USD, not Philippine domestic wages.
+  STEP is historical earnings and PSA is a 2022 published average. No Philippine-specific test accuracy or calibrated PHP salary range exists.
+</div>
+<form class="panel" method="post" action="{{ url_for('experimental_results') }}" novalidate>
+  <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+  {% for name, value in draft.items() %}<input type="hidden" name="{{ name }}" value="{{ value }}">{% endfor %}
+  {% if errors %}<div class="error-box" role="alert"><strong>Review these assumptions:</strong>
+    <ul>{% for message in errors.values() %}<li>{{ message }}</li>{% endfor %}</ul>
+  </div>{% endif %}
+  <h2>Remote advertised-pay model</h2>
+  <p class="muted">Profile: {{ draft.job_title }}{% if draft.skills %} · Skills: {{ draft.skills }}{% endif %}</p>
+  <div class="form-grid">
+    <div class="field">
+      <label for="usd_to_php">Assumed PHP per USD</label>
+      <input id="usd_to_php" name="usd_to_php" type="number" min="1" max="150" step="any" placeholder="e.g. 58" value="{{ values.usd_to_php }}" {% if errors.usd_to_php %}aria-invalid="true"{% endif %}>
+      <small>Enter your own exchange-rate assumption. No live exchange rate is fetched. Leave blank for USD only.</small>
+    </div>
+    <div class="field">
+      <label for="seniority">Advertised seniority proxy</label>
+      <select id="seniority" name="seniority">
+        {% for name in seniorities %}<option value="{{ name }}" {% if values.seniority == name %}selected{% endif %}>{{ name }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="field">
+      <label for="current_salary_php">Current monthly PHP salary (optional)</label>
+      <input id="current_salary_php" name="current_salary_php" type="number" min="0.01" step="any" value="{{ values.current_salary_php }}" placeholder="e.g. 45000">
+      <small>For comparison only; not used to train or increase the model's prediction.</small>
+    </div>
+    <div class="field">
+      <label for="scenario_annual_growth">Illustrative annual growth fraction (optional)</label>
+      <input id="scenario_annual_growth" name="scenario_annual_growth" type="number" min="-0.5" max="0.5" step="any" value="{{ values.scenario_annual_growth }}" placeholder="e.g. 0.03 = 3%">
+      <small>Arbitrary arithmetic scenario, not an observed career forecast.</small>
+    </div>
+  </div>
+  <details>
+    <summary><strong>Optional historical STEP earnings</strong></summary>
+    <p class="muted">All three fields must describe the intended historical survey cohort. Today's PSGC region is not the STEP survey region.</p>
+    <div class="form-grid">
+      <div class="field"><label for="isco_major">ISCO major group (1–9)</label>
+        <select id="isco_major" name="isco_major"><option value="">Not provided</option>
+        {% for i in range(1, 10) %}<option value="{{ i }}" {% if values.isco_major == i|string %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select></div>
+      <div class="field"><label for="step_region_code">STEP historical survey region (1–16)</label>
+        <input id="step_region_code" name="step_region_code" type="number" min="1" max="16" step="1" value="{{ values.step_region_code }}"></div>
+      <div class="field"><label for="education_years">Years of education (0–30)</label>
+        <input id="education_years" name="education_years" type="number" min="0" max="30" step="any" value="{{ values.education_years }}"></div>
+    </div>
+  </details>
+  <details>
+    <summary><strong>Optional exact PSA 2022 published cell</strong></summary>
+    <p class="muted">Supply the exact historical published occupation label and either its industry or region. The app will not automatically join your PSOC code to older tables.</p>
+    <div class="form-grid">
+      <div class="field"><label for="psa_occupation">Published occupation label</label>
+        <input id="psa_occupation" name="psa_occupation" maxlength="120" value="{{ values.psa_occupation }}" placeholder="e.g. Software Developers"></div>
+      <div class="field"><label for="psa_industry">Published industry code (if applicable)</label>
+        <input id="psa_industry" name="psa_industry" maxlength="50" value="{{ values.psa_industry }}" placeholder="e.g. J62"></div>
+      <div class="field"><label for="psa_region">Published region name (alternative to industry)</label>
+        <input id="psa_region" name="psa_region" maxlength="100" value="{{ values.psa_region }}"></div>
+    </div>
+  </details>
+  <div class="actions">
+    <a href="{{ url_for('profile') }}">Start over</a>
+    <button class="button" type="submit">Calculate experimental scenario →</button>
+  </div>
+</form>
+{% endblock %}

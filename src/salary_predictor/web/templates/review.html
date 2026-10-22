@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading">
+  <h1>Review your details</h1>
+  <p>Verify the selected and normalized information before continuing.</p>
+</div>
+<section class="panel">
+  {% if not draft %}
+  <p>No profile has been submitted yet.</p>
+  <a class="button" href="{{ url_for('profile') }}">Enter profile</a>
+  {% else %}
+  <dl class="review-grid">
+    <div><dt>Job title</dt><dd>{{ draft.job_title }}</dd></div>
+    <div><dt>Occupation code</dt><dd>{{ (overview.occupation ~ " (" ~ profile.occupation_psoc_code ~ ")") if profile.occupation_psoc_code else "Not mapped" }}</dd></div>
+    <div><dt>Region code</dt><dd>{{ (overview.region ~ " (" ~ profile.region_psgc_code ~ ")") if profile.region_psgc_code else "Not specified" }}</dd></div>
+    <div><dt>Experience</dt><dd>{{ (draft.years_experience ~ " years") if draft.years_experience else "Not specified" }}</dd></div>
+    <div><dt>Education</dt><dd>{{ draft.education_level or "Not specified" }}</dd></div>
+    <div><dt>Skills</dt><dd>{% for skill in overview.skills %}{{ skill.label }} ({{ "ESCO matched" if skill.mapped else "Free text" }}){% if not loop.last %}, {% endif %}{% else %}Not specified{% endfor %}</dd></div>
+    <div><dt>Employment</dt><dd>{{ draft.employment_context or "Not specified" }}</dd></div>
+  </dl>
+  <p class="muted">Unselected occupations remain unmapped. Unmatched skills remain as typed. The approved release uses reviewed codes; the local experimental model uses your job title and listed skills as proxies.</p>
+  <details class="normalized-details"><summary>See the exact normalized profile fields</summary><pre>{{ profile.to_dict() | tojson(indent=2) }}</pre></details>
+  <div class="actions">
+    <form action="{{ url_for('profile') }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+      {% for name, value in draft.items() %}<input type="hidden" name="{{ name }}" value="{{ value }}">{% endfor %}
+      <button class="button-secondary" type="submit">← Edit details</button>
+    </form>
+    {% if experimental_mode %}
+    <form action="{{ url_for('experimental_start') }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+      {% for name, value in draft.items() %}<input type="hidden" name="{{ name }}" value="{{ value }}">{% endfor %}
+      <button class="button" type="submit">Run experimental salary scenario →</button>
+    </form>
+    {% endif %}
+    <form action="{{ url_for('results') }}" method="post">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+      {% for name, value in draft.items() %}<input type="hidden" name="{{ name }}" value="{{ value }}">{% endfor %}
+      <button class="{{ 'button-secondary' if experimental_mode else 'button' }}" type="submit">{{ "Check approved result" if experimental_mode else "View result" }} →</button>
+    </form>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero"><div class="container-shell narrow"><p class="eyebrow">STEP 01 / CHOOSE YOUR PATH</p><h1>How would you like<br>to begin?</h1><p class="lead-copy">Start with what you know. You'll be able to review your profile before seeing any result.</p></div></section>
+<section class="container-shell page-section"><div class="option-grid">
+  <a href="{{ url_for('profile') }}" class="option-card enabled"><span class="option-symbol" aria-hidden="true">✎</span><span class="option-overline">AVAILABLE NOW</span><h2>Enter details manually</h2><p>Add your job title, experience, location, education, and skills. Review everything before continuing.</p><span class="option-link">Build my profile <span aria-hidden="true">↗</span></span></a>
+  <div class="option-card unavailable"><span class="option-symbol" aria-hidden="true">▧</span><span class="option-overline">PLANNED FOR A LATER PART</span><h2>Upload a résumé</h2><p>Résumé extraction is not enabled yet. You can begin with the manual form instead.</p><span class="option-link">Not yet available</span></div>
+</div><p class="understated text-center">We won't send your profile to a training pipeline or store it in the browser session.</p></section>
+{% endblock %}

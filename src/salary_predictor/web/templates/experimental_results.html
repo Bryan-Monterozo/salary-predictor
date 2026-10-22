@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading">
+  <h1>Experimental results</h1>
+  <p>Source-separated research figures for {{ report.profile.job_title }}. These are not validated Philippine salary predictions.</p>
+</div>
+<div class="notice" role="status"><strong>EXPERIMENTAL LOCAL ONLY.</strong>
+  The trained model estimates USD remote job-advertisement pay. Any peso amounts depend on your stated assumptions. Do not use the combined scenario as a salary recommendation.</div>
+<section class="panel">
+  <h2>Trained Jobicy remote-offer model</h2>
+  {% set remote = report.sources.jobicy_remote_offer %}
+  <p class="amount">US${{ "{:,.2f}".format(remote.monthly_usd) }} <span>/ month, advertised-pay midpoint</span></p>
+  {% if remote.monthly_php_scenario is not none %}
+  <p><strong>{{ remote.monthly_php_scenario | php_monthly }}/month</strong> at assumed ₱{{ remote.rate_assumption_php_per_usd }}/USD</p>
+  {% else %}<p class="muted">No PHP conversion: enter a USD/PHP assumption to see it.</p>{% endif %}
+  <p class="muted">Random Forest experimental held-out MAE: US${{ "{:,.2f}".format(remote.holdout_mae_usd_monthly) }}/month (45 advertisements in original test set). Philippines-eligible ads in held-out set: {{ remote.supported_ph_salary_ads }}. No domestic PHP test accuracy.</p>
+</section>
+{% if report.sources.step_historical %}
+<section class="panel">
+  <h2>STEP historical earnings model</h2>
+  {% set step = report.sources.step_historical %}
+  <p class="amount">{{ step.monthly_php_scenario | php_monthly }} <span>/ month, converted historical hourly earnings</span></p>
+  <p class="muted">Hourly {{ step.predicted_hourly_php | php_monthly }} · {{ step.hours_per_week_assumption }} hours/week × {{ step.weeks_per_year_assumption }} weeks/year ÷ 12. 2015–2016 survey cohort, ISCO major {{ step.isco_major }}, historical survey region {{ step.survey_region_code }}. Not a current salary.</p>
+</section>
+{% endif %}
+{% if report.sources.psa_published_2022 %}
+<section class="panel">
+  <h2>PSA 2022 published wage</h2>
+  {% set psa = report.sources.psa_published_2022 %}
+  <p class="amount">{{ psa.monthly_php_scenario | php_monthly }} <span>/ month, published mean</span></p>
+  <p class="muted">{{ psa.source_label }} · {{ psa.source_date }}
+  {% if psa.source_industry %} · Industry {{ psa.source_industry }}{% endif %}
+  {% if psa.source_region %} · Region {{ psa.source_region }}{% endif %}
+  {% if psa.source_locator %} · Source locator {{ psa.source_locator }}{% endif %}</p>
+  <p>This is an aggregate wage statistic, not an individualized model result.</p>
+</section>
+{% endif %}
+<section class="panel">
+  <h2>Illustrative combination</h2>
+  {% if report.estimated_monthly_php_scenario is not none %}
+  <p class="amount">{{ report.estimated_monthly_php_scenario | php_monthly }} <span>/ month, illustrative scenario only</span></p>
+  {% if report.scenario_label == "REMOTE_OFFER_FX_ONLY_NOT_PH_DOMESTIC_ESTIMATE" %}
+  <p>This is only the converted remote advertised-pay figure, <strong>not</strong> a Philippine domestic estimate.</p>
+  {% else %}
+  <p>These weights are hand-set development assumptions, not fitted fusion-model coefficients:</p>
+  {% endif %}
+  {% if report.blend_weights_illustrative_not_learned %}
+  <ul>
+    {% for key, value in report.blend_weights_illustrative_not_learned.items() %}
+    <li>{{ {"jobicy_remote_offer": "Jobicy remote offer", "step_historical": "STEP historical earnings", "psa_published_2022": "PSA published benchmark"}.get(key, key) }}: {{ "{:.0f}".format(value * 100) }}%</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% else %}<p>No PHP scenario was calculated: provide an assumed exchange rate or exact historical evidence inputs.</p>{% endif %}
+  {% if report.current_salary_php_reference is not none %}
+  <p>Entered current salary: {{ report.current_salary_php_reference | php_monthly }}/month (reference only; not a model input).</p>
+  {% endif %}
+  {% if report.forecast %}
+  <h3>Arithmetic scenarios — not a forecast</h3>
+  <p class="muted">Assumed fixed annual change: {{ "{:.1f}".format(report.forecast.annual_growth * 100) }}%</p>
+  <ul>{% for item in report.forecast.scenario_years %}<li>{{ item.year }} year(s): {{ item.php_monthly | php_monthly }}/month</li>{% endfor %}</ul>
+  {% endif %}
+</section>
+<section class="panel">
+  <h2>Method and limitations</h2>
+  <p>Verified local experimental artifact: <code>{{ report.model_artifact }}</code>. It is not production approved.</p>
+  <ul>{% for item in report.limitations %}<li>{{ item }}</li>{% endfor %}</ul>
+  <p class="muted">Years of experience and current salary are not learned predictors of the Jobicy model. ESCO skill associations are suggestions, not measured pay premiums. No calibrated Philippine peso uncertainty range is available.</p>
+  <div class="actions"><a class="button" href="{{ url_for('profile') }}">Try another profile</a></div>
+</section>
+{% endblock %}

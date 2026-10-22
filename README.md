@@ -28,3 +28,17 @@ The initial reference material includes occupation and skill information from ES
 
 
 ---
+## Local website and experimental salary scenarios
+
+```sh
+uv sync --extra web --extra train --extra dev --extra ingest
+uv run --no-sync python -m salary_predictor.trainer experimental verify
+uv run --no-sync python -m salary_predictor.web
+```
+
+Open http://127.0.0.1:5000 on the same computer. Choose a manual or PDF/DOCX profile, review and edit it, then select **Run experimental salary scenario**.
+
+Enter an assumed PHP/USD rate for PHP scenarios (e.g. 58; not a live FX quote). Optional STEP survey and PSA 2022 inputs must use exact historical source dimensions. The website shows remote USD offers, historical wage evidence, the hand-weighted blended scenario and important limitations separately. It does not claim a calibrated current domestic salary range.
+
+**Local-only:** the development server binds to 127.0.0.1 and enables experimental mode. The WSGI app factory keeps it disabled by default. The trusted local model is loaded only by a subprocess after hash verification, not by public runtime inference. Restart the server after Python changes.
+

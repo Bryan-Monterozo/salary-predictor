@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading">
+  <h1>Your salary result</h1>
+  <p>Monthly Philippine peso values are only displayed when supported by approved evidence.</p>
+</div>
+<section class="panel">
+  {% if result.mode == "MODEL_ESTIMATE" %}
+    <p class="result-tag">MODEL ESTIMATE</p><h2>Estimated monthly salary</h2>
+  {% elif result.mode == "MARKET_BENCHMARK" %}
+    <p class="result-tag">MARKET BENCHMARK</p><h2>Published wage benchmark</h2>
+  {% else %}
+    <p class="result-tag unavailable">NOT YET AVAILABLE</p><h2>No salary figure to show yet</h2>
+  {% endif %}
+  {% if result.central_php_monthly is not none %}
+    <p class="amount">{{ result.central_php_monthly | php_monthly }} <span>/ month</span></p>
+    {% if result.lower_php_monthly is not none and result.upper_php_monthly is not none %}
+      <p>Published or validated range: {{ result.lower_php_monthly | php_monthly }} – {{ result.upper_php_monthly | php_monthly }}</p>
+      <p class="muted">Range basis: {{ result.range_basis.replace('_', ' ') }}</p>
+    {% endif %}
+  {% endif %}
+  <p>{{ result.explanation }}</p>
+  {% if result.data_as_of %}<p class="muted">Evidence date: {{ result.data_as_of }}</p>{% endif %}
+  {% if result.mode != "UNAVAILABLE" %}
+  <dl class="review-grid result-metadata">
+    <div><dt>Method</dt><dd>{{ "Reviewed predictive model" if result.mode == "MODEL_ESTIMATE" else "Published aggregate benchmark" }}</dd></div>
+    <div><dt>Pay basis</dt><dd>{{ result.basis.replace("_", " ") }}</dd></div>
+    <div><dt>Geographic coverage</dt><dd>{{ result.region_specificity.replace("_", " ") }}</dd></div>
+    <div><dt>Occupation coverage</dt><dd>{{ result.occupation_specificity.replace("_", " ") }}</dd></div>
+    <div><dt>Currency and period</dt><dd>PHP per month</dd></div>
+    {% if result.source_id %}<div><dt>Evidence source</dt><dd>{{ result.source_id }}{% if result.source_version %} ({{ result.source_version }}){% endif %}</dd></div>{% endif %}
+    {% if result.artifact_version %}<div><dt>Approved model version</dt><dd>{{ result.artifact_version }}</dd></div>{% endif %}
+  </dl>
+  {% endif %}
+  {% if result.limitations %}
+    <h3>Important limitations</h3>
+    <ul>{% for limitation in result.limitations %}<li>{{ limitation }}</li>{% endfor %}</ul>
+  {% endif %}
+  {% if not preview %}<p class="muted">You haven't submitted a profile for this request.</p>{% endif %}
+  <div class="actions"><a class="button" href="{{ url_for('profile') }}">Try another profile</a></div>
+</section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading">
+  <h1>Upload a résumé</h1>
+  <p>PDF or DOCX (2 MB maximum). Text only, up to 8 PDF pages or 1,200 DOCX paragraphs.</p>
+</div>
+<section class="panel">
+  <p>We extract suggested career fields locally and let you correct everything before continuing. Scanned PDFs are not supported.</p>
+  <p class="muted">No uploaded file or raw résumé text is saved, sent to a third-party service, or used to train a model. Only the details you confirm move to the review step.</p>
+  {% if error %}
+    <div class="error-box" role="alert">{{ error }}</div>
+  {% endif %}
+  <form method="post" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+    <div class="field">
+      <label for="resume">Choose a résumé file</label>
+      <input id="resume" name="resume" type="file" required accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" aria-describedby="resume_help">
+      <small id="resume_help">Only PDF/DOCX are accepted. Password-protected and embedded-content documents are rejected.</small>
+    </div>
+    <div class="actions">
+      <a class="text-link" href="{{ url_for('profile') }}">Enter details manually</a>
+      <button class="button" type="submit">Extract suggestions →</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

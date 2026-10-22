@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+<script src="{{ url_for('static', filename='js/site.js') }}" defer></script>
+<div class="page-heading">
+  <h1>Enter your profile</h1>
+  <p>Add your role, region, experience, education and skills. Review and edit before seeing a result.</p>
+</div>
+{% if not taxonomy_available %}
+<div class="error-box" role="status">Occupation and region lookup files are missing. Only profile fields without a reference code are currently available.</div>
+{% endif %}
+{% if upload_notes %}
+<section class="notice small-notice" role="status">
+  <strong>Résumé suggestions — please verify every field.</strong>
+  <ul>{% for note in upload_notes %}<li>{{ note }}</li>{% endfor %}</ul>
+  <p>Nothing has been confirmed yet. Make corrections below, then choose Review details.</p>
+</section>
+{% else %}
+<div class="notice small-notice">{% if experimental_mode %}Local experimental model available after review; this is not an approved Philippine salary predictor.{% else %}No approved salary model is connected. Your entries aren't saved to a database or used to train a model.{% endif %}</div>
+{% endif %}
+<form class="panel form-panel" action="{{ url_for('review') }}" method="post" novalidate>
+  <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+  {% if errors %}
+  <div class="error-box" role="alert"><strong>Check the following fields:</strong>
+    <ul>{% for field, message in errors.items() %}<li>{{ message }}</li>{% endfor %}</ul>
+  </div>
+  {% endif %}
+  <div class="field">
+    <label for="job_title">Job title <span class="required">Required</span></label>
+    <input id="job_title" name="job_title" value="{{ draft.job_title }}" maxlength="150" required autocomplete="organization-title" placeholder="e.g. Software Developer" aria-describedby="job_title_help" {% if errors.job_title %}aria-invalid="true"{% endif %}>
+    <small id="job_title_help">Your job title stays as entered; select a PSOC occupation separately if there is an exact fit.</small>{% if errors.job_title %}<small class="field-error">{{ errors.job_title }}</small>{% endif %}
+  </div>
+  <div class="form-grid">
+    <div class="field">
+      <label for="occupation_psoc_code">Occupation (search PSOC groups)</label>
+      <input id="occupation_psoc_code" name="occupation_psoc_code" list="psoc-options"
+             value="{{ draft.occupation_psoc_code }}" placeholder="Type a job or 4-digit code"
+             autocomplete="off" aria-describedby="psoc_help"
+             {% if errors.occupation_psoc_code %}aria-invalid="true"{% endif %}>
+      <datalist id="psoc-options">
+        {% for occupation in occupations %}
+          <option value="{{ occupation.code }} — {{ occupation.label }}"></option>
+        {% endfor %}
+      </datalist>
+      <small id="psoc_help">Optional. Select an exact occupation from the list. Unmatched or ambiguous titles are not assigned a code.</small>{% if errors.occupation_psoc_code %}<small class="field-error">{{ errors.occupation_psoc_code }}</small>{% endif %}
+    </div>
+    <div class="field">
+      <label for="region_psgc_code">Philippine region</label>
+      <select id="region_psgc_code" name="region_psgc_code" aria-describedby="region_help" {% if errors.region_psgc_code %}aria-invalid="true"{% endif %}>
+        <option value="">Not specified</option>
+        {% for region in regions %}
+          <option value="{{ region.code }}" {% if draft.region_psgc_code == region.code %}selected{% endif %}>{{ region.label }}</option>
+        {% endfor %}
+      </select>
+      <small id="region_help">Select a region; no need to know PSGC codes.</small>{% if errors.region_psgc_code %}<small class="field-error">{{ errors.region_psgc_code }}</small>{% endif %}
+    </div>
+    <div class="field">
+      <label for="years_experience">Years of experience</label>
+      <input id="years_experience" name="years_experience" type="number" min="0" max="70" step="0.25" value="{{ draft.years_experience }}" placeholder="e.g. 4" {% if errors.years_experience %}aria-invalid="true"{% endif %}>{% if errors.years_experience %}<small class="field-error">{{ errors.years_experience }}</small>{% endif %}
+    </div>
+    <div class="field">
+      <label for="education_level">Highest education</label>
+      <select id="education_level" name="education_level">
+        {% for value, label in education_choices %}<option value="{{ value }}" {% if draft.education_level == value %}selected{% endif %}>{{ label }}</option>{% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="field">
+    <label for="skills">Skills</label>
+    <textarea id="skills" name="skills" rows="3" maxlength="500" placeholder="e.g. SQL, Flutter, C#, Excel" {% if errors.skills %}aria-invalid="true"{% endif %}>{{ draft.skills }}</textarea>{% if errors.skills %}<small class="field-error">{{ errors.skills }}</small>{% endif %}
+    <small id="skills_help">Separate with commas (up to 30). Unmapped skills stay as free text; no salary premium is assumed.</small>
+    <div class="skill-assistant" data-skill-assistant>
+      <label for="skill-search">Find and add a skill</label>
+      <div class="skill-controls">
+        <input id="skill-search" type="text" list="skill-suggestions" maxlength="100"
+               placeholder="Type to see skill suggestions" autocomplete="off"
+               aria-describedby="skill_search_help">
+        <datalist id="skill-suggestions"></datalist>
+        <button class="button-secondary" type="button" id="add-skill">Add skill</button>
+      </div>
+      <small id="skill_search_help">Suggestions are ESCO vocabulary only. You can add your own skill.</small>
+      <div class="skill-chip-list" id="skill-chip-list" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="field">
+    <label for="employment_context">Employment arrangement</label>
+    <select id="employment_context" name="employment_context">
+      <option value="">Not specified</option>
+      {% for key, name in [("full_time","Full-time"),("part_time","Part-time"),("contract","Contract"),("self_employed","Self-employed"),("unknown","Not sure")] %}
+      <option value="{{ key }}" {% if draft.employment_context == key %}selected{% endif %}>{{ name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="actions">
+    <a class="text-link" href="{{ url_for('home') }}">Cancel</a>
+    <button class="button" type="submit">Review details →</button>
+  </div>
+</form>
+{% endblock %}

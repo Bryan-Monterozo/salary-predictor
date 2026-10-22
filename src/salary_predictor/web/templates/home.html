@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading">
+  <h1>Philippine Salary Predictor</h1>
+  <p>Enter your career information, review it, and see whether a supported salary estimate or market benchmark is available.</p>
+</div>
+<div class="notice" role="status"><strong>Prototype status:</strong> Approved Philippine salary estimates are not available yet. On this computer, you can explore the separate trained experimental remote-offer model after reviewing a profile.</div>
+<section class="panel home-action">
+  <div>
+    <h2>Start with your career details</h2>
+    <p>Job title, location, experience, education, and skills. Only your job title is required in this early version.</p>
+  </div>
+  <a class="button" href="{{ url_for('profile') }}">Enter profile →</a>
+</section>
+<section class="panel compact-panel">
+  <h2>What you can do</h2>
+  <ol class="simple-list">
+    <li>Fill in your career details.</li>
+    <li>Review the information and edit it if needed.</li>
+    <li>View a clearly labeled result (or an explanation when data is unavailable).</li>
+  </ol>
+  <p class="muted">You can also upload a PDF/DOCX résumé for editable suggestions.</p>
+  <p><a href="{{ url_for('upload') }}">Upload a résumé (PDF/DOCX) →</a></p>
+</section>
+{% endblock %}
