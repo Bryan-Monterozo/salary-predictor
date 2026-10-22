@@ -72,5 +72,35 @@ def main(argv: list[str] | None = None) -> int:
         return 2
 
 
+def dispatch(argv: list[str] | None = None) -> int:
+    import sys
+
+    from .operator_cli import main as operator_main
+
+    args = sys.argv[1:] if argv is None else argv
+    if args and args[0] == "experimental":
+        from .experimental_cli import main as experiment_main
+
+        return experiment_main(args[1:])
+    if args and args[0] == "ingest":
+        from salary_predictor.ingest.__main__ import main as ingest_main
+
+        return ingest_main(args[1:])
+    if args and args[0] == "audit":
+        from salary_predictor.audit.__main__ import main as audit_main
+
+        return audit_main(args[1:])
+    if args and args[0] in {
+        "sources", "train", "evaluate", "prepare", "verify", "promote",
+        "rollback", "active",
+    }:
+        return operator_main(args)
+    if args and args[0] in {
+        "--root", "--as-of", "--occupation", "--industry", "--region", "--write-report",
+    }:
+        return main(args)
+    return operator_main(args)
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(dispatch())

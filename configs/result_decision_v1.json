@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "policy_id": "result_decision_part10_v1",
+  "status": "DRAFT_NOT_APPROVED_FOR_RUNTIME",
+  "runtime_release_enabled": false,
+  "model_release_enabled": false,
+  "benchmark_release_enabled": false,
+  "routing_order": [
+    "MODEL_ESTIMATE",
+    "MARKET_BENCHMARK",
+    "UNAVAILABLE"
+  ],
+  "mapping": {
+    "minimum_source_reviewed_confidence": "0.95",
+    "allow_automatic_psoc_ows_crosswalk": false,
+    "allow_ambiguous_resolution": false
+  },
+  "model": {
+    "min_occupation_support": 30,
+    "min_region_support": 30,
+    "min_holdout_records": 100,
+    "min_test_groups": 10,
+    "max_reference_age_months": 24,
+    "require_observed_occupation": true,
+    "require_genuine_person_salary_labels": true,
+    "require_training_and_artifact_approval": true,
+    "allow_skills_as_salary_feature": false
+  },
+  "benchmark": {
+    "require_exact_published_dimensions": true,
+    "allowed_source_ids": [
+      "psa_ows_2022_public_tables"
+    ],
+    "allowed_metrics": [
+      "mean_monthly_wage"
+    ],
+    "required_currency": "PHP",
+    "required_period": "monthly",
+    "require_source_reuse_and_release_approval": true,
+    "max_reference_age_months": 36,
+    "stale_action": "suppress_runtime_but_preserve_historical_research",
+    "allow_unknown_worker_sample_size": true,
+    "show_worker_sample_size_without_source": false,
+    "allow_region_industry_table_join": false,
+    "allow_occupation_hierarchy_fallback": false,
+    "allow_published_ranges": false
+  },
+  "uncertainty": {
+    "allow_model_intervals_only_with_heldout_calibration": true,
+    "min_calibration_records": 100,
+    "min_calibration_empirical_coverage": "0.80",
+    "model_range_basis": "calibrated_model_interval",
+    "benchmark_range_basis": "published_source_range",
+    "default_range_policy": "no_range",
+    "allow_synthetic_percentage_bands": false
+  },
+  "reliability": {
+    "suppress_small_groups_below": 30,
+    "only_reveal_source_reported_support": true,
+    "source_comparability_required": true,
+    "source_age_warning_months": 24
+  }
+}

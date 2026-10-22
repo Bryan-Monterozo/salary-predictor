@@ -15,7 +15,7 @@ The idea is simple: enter your career details or upload a resume, review the inf
 
 ## Project status
 
-**Just getting started.** No website or trained salary predictor has been released yet.
+**Local experimental model available.** A real Jobicy USD advertised-pay regressor is trained and inferencable locally; optional historical STEP and PSA evidence can provide transparent PHP scenarios.
 
 The initial reference material includes occupation and skill information from ESCO and Philippine occupational wage statistics. Salary figures will be labeled according to their sources; a market average isn't the same as a personal salary prediction.
 
